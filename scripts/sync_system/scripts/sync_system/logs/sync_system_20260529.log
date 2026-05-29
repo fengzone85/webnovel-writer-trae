@@ -1,0 +1,46 @@
+2026-05-29 20:11:57,142 - SyncSystem - INFO - 初始化同步系统...
+2026-05-29 20:11:57,145 - SyncSystem - INFO - ✓ 同步调度器已初始化
+2026-05-29 20:11:57,147 - SyncSystem - WARNING - 兼容性测试器初始化失败: RawConfigParser.get() takes 3 positional arguments but 4 were given
+2026-05-29 20:11:57,149 - SyncSystem - INFO - ✓ 依赖管理器已初始化
+2026-05-29 20:11:57,150 - SyncSystem - WARNING - 通知管理器初始化失败: RawConfigParser.get() takes 3 positional arguments but 4 were given
+2026-05-29 20:12:04,432 - SyncSystem - INFO - 初始化同步系统...
+2026-05-29 20:12:04,434 - SyncSystem - INFO - ✓ 同步调度器已初始化
+2026-05-29 20:12:04,435 - SyncSystem - WARNING - 兼容性测试器初始化失败: RawConfigParser.get() takes 3 positional arguments but 4 were given
+2026-05-29 20:12:04,437 - SyncSystem - INFO - ✓ 依赖管理器已初始化
+2026-05-29 20:12:04,438 - SyncSystem - WARNING - 通知管理器初始化失败: RawConfigParser.get() takes 3 positional arguments but 4 were given
+2026-05-29 20:13:36,843 - SyncSystem - INFO - 初始化同步系统...
+2026-05-29 20:13:36,846 - SyncSystem - INFO - ✓ 同步调度器已初始化
+2026-05-29 20:13:36,846 - SyncSystem - WARNING - 兼容性测试器初始化失败: RawConfigParser.get() takes 3 positional arguments but 4 were given
+2026-05-29 20:13:36,848 - SyncSystem - INFO - ✓ 依赖管理器已初始化
+2026-05-29 20:13:36,848 - SyncSystem - WARNING - 通知管理器初始化失败: RawConfigParser.get() takes 3 positional arguments but 4 were given
+2026-05-29 20:14:44,302 - SyncSystem - INFO - 初始化同步系统...
+2026-05-29 20:14:44,304 - SyncSystem - INFO - ✓ 同步调度器已初始化
+2026-05-29 20:14:44,305 - SyncSystem - WARNING - 兼容性测试器初始化失败: RawConfigParser.getint() takes 3 positional arguments but 4 were given
+2026-05-29 20:14:44,305 - SyncSystem - INFO - ✓ 依赖管理器已初始化
+2026-05-29 20:14:44,306 - SyncSystem - WARNING - 通知管理器初始化失败: RawConfigParser.get() takes 3 positional arguments but 4 were given
+2026-05-29 20:17:17,391 - SyncSystem - INFO - 初始化同步系统...
+2026-05-29 20:17:17,392 - SyncSystem - INFO - ✓ 同步调度器已初始化
+2026-05-29 20:17:17,394 - SyncSystem - INFO - ✓ 兼容性测试器已初始化
+2026-05-29 20:17:17,395 - SyncSystem - INFO - ✓ 依赖管理器已初始化
+2026-05-29 20:17:17,395 - SyncSystem - WARNING - 通知管理器初始化失败: RawConfigParser.get() takes 3 positional arguments but 4 were given
+2026-05-29 20:17:41,264 - SyncSystem - INFO - 初始化同步系统...
+2026-05-29 20:17:41,265 - SyncSystem - INFO - ✓ 同步调度器已初始化
+2026-05-29 20:17:41,265 - SyncSystem - INFO - ✓ 兼容性测试器已初始化
+2026-05-29 20:17:41,267 - SyncSystem - INFO - ✓ 依赖管理器已初始化
+2026-05-29 20:17:41,269 - SyncSystem - INFO - ✓ 通知管理器已初始化
+2026-05-29 20:17:49,925 - SyncSystem - INFO - 初始化同步系统...
+2026-05-29 20:17:49,927 - SyncSystem - INFO - ✓ 同步调度器已初始化
+2026-05-29 20:17:49,928 - SyncSystem - INFO - ✓ 兼容性测试器已初始化
+2026-05-29 20:17:49,929 - SyncSystem - INFO - ✓ 依赖管理器已初始化
+2026-05-29 20:17:49,933 - SyncSystem - INFO - ✓ 通知管理器已初始化
+2026-05-29 20:17:49,933 - SyncSystem - INFO - 开始同步 (force=True)
+2026-05-29 20:18:15,510 - SyncSystem - INFO - 初始化同步系统...
+2026-05-29 20:18:15,511 - SyncSystem - INFO - ✓ 同步调度器已初始化
+2026-05-29 20:18:15,512 - SyncSystem - INFO - ✓ 兼容性测试器已初始化
+2026-05-29 20:18:15,514 - SyncSystem - INFO - ✓ 依赖管理器已初始化
+2026-05-29 20:18:15,516 - SyncSystem - INFO - ✓ 通知管理器已初始化
+2026-05-29 20:18:15,517 - SyncSystem - INFO - 开始完整同步周期
+2026-05-29 20:18:15,517 - SyncSystem - INFO - 开始同步 (force=True)
+2026-05-29 20:18:15,517 - SyncSystem - INFO - 开始兼容性测试...
+2026-05-29 20:18:15,520 - SyncSystem - INFO - 检查依赖状态...
+2026-05-29 20:18:15,962 - SyncSystem - INFO - 完整周期完成: 耗时 0.44秒, 成功: True

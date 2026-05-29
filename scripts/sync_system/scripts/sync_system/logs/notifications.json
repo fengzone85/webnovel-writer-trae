@@ -1,0 +1,44 @@
+[
+  {
+    "type": "sync_success",
+    "title": "文档同步成功",
+    "message": "成功同步 0 个文件",
+    "timestamp": "2026-05-29T20:17:49.934618",
+    "data": {
+      "files_updated": 0,
+      "files_added": 0,
+      "version": null,
+      "duration": 0.0010142326354980469
+    },
+    "channel": "file"
+  },
+  {
+    "type": "sync_success",
+    "title": "文档同步成功",
+    "message": "成功同步 0 个文件",
+    "timestamp": "2026-05-29T20:18:15.517077",
+    "data": {
+      "files_updated": 0,
+      "files_added": 0,
+      "version": null,
+      "duration": 0.0
+    },
+    "channel": "file"
+  },
+  {
+    "type": "test_passed",
+    "title": "兼容性测试通过",
+    "message": "测试通过率: 0.0%",
+    "timestamp": "2026-05-29T20:18:15.520116",
+    "data": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "warnings": 0,
+      "pass_rate": "0.0%",
+      "duration": 0.0005121231079101562,
+      "report": "scripts\\sync_system\\tests\\reports\\test_report_20260529_201815.json"
+    },
+    "channel": "file"
+  }
+]

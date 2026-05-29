@@ -1,0 +1,8 @@
+2026-05-29 20:17:41,269 - NotificationManager - INFO - 通知管理器已启动
+2026-05-29 20:17:49,933 - NotificationManager - INFO - 通知管理器已启动
+2026-05-29 20:17:49,935 - NotificationManager - INFO - 通知发送成功 [console]: 已发送到控制台
+2026-05-29 20:18:15,516 - NotificationManager - INFO - 通知管理器已启动
+2026-05-29 20:18:15,518 - NotificationManager - INFO - 通知发送成功 [console]: 已发送到控制台
+2026-05-29 20:18:15,519 - NotificationManager - INFO - 通知发送成功 [file]: 已保存到 scripts\sync_system\logs\notifications.json
+2026-05-29 20:18:15,520 - NotificationManager - INFO - 通知发送成功 [console]: 已发送到控制台
+2026-05-29 20:18:15,521 - NotificationManager - INFO - 通知发送成功 [file]: 已保存到 scripts\sync_system\logs\notifications.json

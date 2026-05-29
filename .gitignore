@@ -1,42 +1,58 @@
-# Python
+.claude/
+.agents/
+.codex/
+.gemini/
+.trellis/
+AGENTS.md
+
+# Python caches & virtualenv
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
-env/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
 venv/
-ENV/
-build/
-dist/
-*.egg-info/
-.eggs/
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# Local runtime data
+.webnovel/
 
-# OS
+# OS / editor
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
 
-# Project specific
-.sync_status/
-.sync_cache/
-.sync_temp/
-.sync_history/
-logs/
-scripts/sync_system/logs/
-scripts/sync_system/tests/reports/
-
-# Node (for Dashboard)
+# Workspace artifacts
 node_modules/
-package-lock.json
+.npm-cache/
+dist/
+!webnovel-writer/dashboard/frontend/dist/
+!webnovel-writer/dashboard/frontend/dist/**
+nul
+.tmp/
+.tmp_*
+.tmp_outline_check/
 
-# Temporary files
-*.tmp
-*.bak
-*.log
+# Local research / sibling projects (avoid accidental commit)
+.sisyphus/
+De-AI-Prompt/
+MuMuAINovel/
+hapi-tool/
+ai-writing-knowledge/
+novel/
+novel-refined/
+oh-story-claudecode/
+
+# Local analysis snapshots and draft docs
+PROJECT_MINDMAP*.md
+webnovel-writer-v5*-architecture.svg
+_v52_*.json
+_v52_*.txt
+claude_inventory.csv
+*_utf8_sample.txt
+C*tool-results*.txt
+
+# Test / diagnostic files
+test_gemini.env
+test_gemini_diag.py
