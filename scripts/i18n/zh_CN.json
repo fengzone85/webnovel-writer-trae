@@ -1,0 +1,100 @@
+{
+  "app_name": "Webnovel Writer",
+  "app_description": "长篇网文创作系统",
+
+  "commands": {
+    "init": "初始化项目",
+    "status": "查看状态",
+    "preflight": "健康检查",
+    "plan": "规划大纲",
+    "write": "写作",
+    "review": "审查",
+    "commit": "提交",
+    "task": "任务书",
+    "dashboard": "可视化面板",
+    "backup": "备份管理",
+    "memory": "记忆管理",
+    "learn": "学习参考",
+    "deconstruct": "拆解参考",
+    "export": "导出",
+    "import": "导入",
+    "query": "查询",
+    "reader_pull": "追读力分析",
+    "stats": "统计信息"
+  },
+
+  "status": {
+    "healthy": "健康",
+    "unhealthy": "不健康",
+    "warning": "警告",
+    "error": "错误",
+    "unknown": "未知"
+  },
+
+  "phases": {
+    "phase1": "合同种子",
+    "phase2": "运行时合同",
+    "phase3": "章节提交链",
+    "phase4": "事件审计链",
+    "phase5": "真源管理"
+  },
+
+  "review": {
+    "highpoint": "爽点密度",
+    "consistency": "设定一致性",
+    "pacing": "节奏检查",
+    "ooc": "人物OOC",
+    "continuity": "连贯性",
+    "reader_pull": "追读力"
+  },
+
+  "messages": {
+    "success": "成功",
+    "failed": "失败",
+    "completed": "已完成",
+    "in_progress": "进行中",
+    "pending": "待处理",
+    "not_found": "未找到",
+    "invalid_input": "无效输入",
+    "operation_success": "操作成功",
+    "operation_failed": "操作失败"
+  },
+
+  "wizard": {
+    "welcome": "欢迎使用项目配置向导",
+    "project_name": "项目名称",
+    "genre": "题材类型",
+    "main_character": "主角名字",
+    "finger": "金手指类型",
+    "writing_mode": "写作模式",
+    "complete": "配置完成"
+  },
+
+  "backup": {
+    "create": "创建备份",
+    "restore": "恢复备份",
+    "list": "列出备份",
+    "archive": "归档备份",
+    "delete": "删除备份",
+    "stats": "备份统计"
+  },
+
+  "memory": {
+    "characters": "角色记忆",
+    "events": "事件记忆",
+    "hooks": "钩子记忆",
+    "settings": "设定记忆",
+    "locations": "地点记忆",
+    "timeline": "时间线"
+  },
+
+  "errors": {
+    "project_not_found": "项目未找到",
+    "chapter_not_found": "章节未找到",
+    "file_not_found": "文件未找到",
+    "invalid_format": "无效格式",
+    "network_error": "网络错误",
+    "permission_denied": "权限不足",
+    "unknown_error": "未知错误"
+  }
+}

@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+.sync_status/
+.sync_cache/
+.sync_temp/
+.sync_history/
+logs/
+scripts/sync_system/logs/
+scripts/sync_system/tests/reports/
+
+# Node (for Dashboard)
+node_modules/
+package-lock.json
+
+# Temporary files
+*.tmp
+*.bak
+*.log

@@ -1,0 +1,40 @@
+{
+  "source_path": "/path/to/source/project",
+  "target_path": "/path/to/target/project",
+  "replication_id": "",
+  "history_path": ".replication-history",
+  
+  "overwrite_existing": false,
+  "include_database": true,
+  "version_control": true,
+  "verbose": true,
+  
+  "exclude_patterns": [
+    "*.log",
+    "*.tmp",
+    "node_modules/",
+    "venv/",
+    "__pycache__/"
+  ],
+  
+  "include_patterns": [],
+  
+  "database": {
+    "type": "sqlite",
+    "host": "localhost",
+    "port": 3306,
+    "username": "",
+    "password": "",
+    "database": ""
+  },
+  
+  "validation": {
+    "check_file_structure": true,
+    "check_config_files": true,
+    "check_dependencies": true,
+    "check_checksum": true,
+    "run_build_test": false,
+    "run_security_scan": true,
+    "run_performance_check": false
+  }
+}

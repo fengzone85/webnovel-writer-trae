@@ -1,0 +1,100 @@
+{
+  "app_name": "Webnovel Writer",
+  "app_description": "Long-form web novel creation system",
+
+  "commands": {
+    "init": "Initialize Project",
+    "status": "View Status",
+    "preflight": "Health Check",
+    "plan": "Plan Outline",
+    "write": "Write",
+    "review": "Review",
+    "commit": "Commit",
+    "task": "Task Brief",
+    "dashboard": "Dashboard",
+    "backup": "Backup Management",
+    "memory": "Memory Management",
+    "learn": "Learn from Reference",
+    "deconstruct": "Deconstruct Reference",
+    "export": "Export",
+    "import": "Import",
+    "query": "Query",
+    "reader_pull": "Reader Pull Analysis",
+    "stats": "Statistics"
+  },
+
+  "status": {
+    "healthy": "Healthy",
+    "unhealthy": "Unhealthy",
+    "warning": "Warning",
+    "error": "Error",
+    "unknown": "Unknown"
+  },
+
+  "phases": {
+    "phase1": "Contract Seed",
+    "phase2": "Runtime Contract",
+    "phase3": "Chapter Commit Chain",
+    "phase4": "Event Audit Chain",
+    "phase5": "True Source Management"
+  },
+
+  "review": {
+    "highpoint": "High-point Density",
+    "consistency": "Setting Consistency",
+    "pacing": "Pacing Check",
+    "ooc": "Character OOC",
+    "continuity": "Continuity",
+    "reader_pull": "Reader Pull"
+  },
+
+  "messages": {
+    "success": "Success",
+    "failed": "Failed",
+    "completed": "Completed",
+    "in_progress": "In Progress",
+    "pending": "Pending",
+    "not_found": "Not Found",
+    "invalid_input": "Invalid Input",
+    "operation_success": "Operation Successful",
+    "operation_failed": "Operation Failed"
+  },
+
+  "wizard": {
+    "welcome": "Welcome to Project Configuration Wizard",
+    "project_name": "Project Name",
+    "genre": "Genre Type",
+    "main_character": "Main Character Name",
+    "finger": "Cheat Type",
+    "writing_mode": "Writing Mode",
+    "complete": "Configuration Complete"
+  },
+
+  "backup": {
+    "create": "Create Backup",
+    "restore": "Restore Backup",
+    "list": "List Backups",
+    "archive": "Archive Backup",
+    "delete": "Delete Backup",
+    "stats": "Backup Statistics"
+  },
+
+  "memory": {
+    "characters": "Character Memory",
+    "events": "Event Memory",
+    "hooks": "Hook Memory",
+    "settings": "Setting Memory",
+    "locations": "Location Memory",
+    "timeline": "Timeline"
+  },
+
+  "errors": {
+    "project_not_found": "Project not found",
+    "chapter_not_found": "Chapter not found",
+    "file_not_found": "File not found",
+    "invalid_format": "Invalid format",
+    "network_error": "Network error",
+    "permission_denied": "Permission denied",
+    "unknown_error": "Unknown error"
+  }
+}

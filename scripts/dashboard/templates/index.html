@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webnovel Writer Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+        .stat-card .label {
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .stat-card .value {
+            color: #333;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .stat-card .detail {
+            color: #999;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .tab {
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .tab:hover {
+            background: #e0e0e0;
+        }
+        .tab.active {
+            background: #667eea;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        .info-item {
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .info-item .label {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        .info-item .value {
+            color: #333;
+            font-size: 14px;
+        }
+        .hook-list, .cool-point-list {
+            list-style: none;
+        }
+        .hook-list li, .cool-point-list li {
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .hook-list li::before {
+            content: "📌 ";
+        }
+        .cool-point-list li::before {
+            content: "✨ ";
+        }
+        .commit-item {
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        .commit-item .commit-id {
+            color: #667eea;
+            font-weight: bold;
+        }
+        .commit-item .commit-time {
+            color: #999;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        .health-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .health-status.healthy {
+            background: #d4edda;
+            color: #155724;
+        }
+        .health-status.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .health-status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        .error {
+            color: #dc3545;
+            padding: 12px;
+            background: #f8d7da;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+        .refresh-btn {
+            float: right;
+            padding: 6px 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .refresh-btn:hover {
+            background: #5a6fd6;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Webnovel Writer Dashboard</h1>
+            <div class="subtitle" id="projectInfo">加载中...</div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="label">章节总数</div>
+                <div class="value" id="totalChapters">-</div>
+                <div class="detail" id="currentChapter">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">角色数量</div>
+                <div class="value" id="charactersCount">-</div>
+                <div class="detail">已记录角色</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">事件数量</div>
+                <div class="value" id="eventsCount">-</div>
+                <div class="detail">已提取事件</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">钩子数量</div>
+                <div class="value" id="hooksCount">-</div>
+                <div class="detail">待兑现钩子</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <button class="refresh-btn" onclick="refreshAll()">🔄 刷新</button>
+            <h2>📊 项目状态</h2>
+            <div id="healthStatus" style="margin-bottom: 16px;">
+                <span class="health-status healthy">检查中...</span>
+            </div>
+            <div class="info-grid" id="projectStats">
+                <div class="info-item">
+                    <div class="label">项目名称</div>
+                    <div class="value" id="projectName">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">题材</div>
+                    <div class="value" id="genre">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">主角</div>
+                    <div class="value" id="mainCharacter">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">金手指</div>
+                    <div class="value" id="goldenFinger">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="label"> Strand 比例</div>
+                    <div class="value" id="strandConfig">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">最后更新</div>
+                    <div class="value" id="lastUpdated">-</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🧠 追读力分析</h2>
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('hooks')">钩子</button>
+                <button class="tab" onclick="showTab('cool-points')">爽点</button>
+            </div>
+            <div id="tab-hooks" class="tab-content active">
+                <ul class="hook-list" id="hookList">
+                    <li class="empty-state">加载中...</li>
+                </ul>
+            </div>
+            <div id="tab-cool-points" class="tab-content">
+                <ul class="cool-point-list" id="coolPointList">
+                    <li class="empty-state">加载中...</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📜 提交历史</h2>
+            <div id="commitList">
+                <div class="empty-state">加载中...</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌳 合同树概览</h2>
+            <div class="info-grid" id="contractSummary">
+                <div class="info-item">
+                    <div class="label">卷</div>
+                    <div class="value" id="volumesCount">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">章节合同</div>
+                    <div class="value" id="chapterContractsCount">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">事件审计</div>
+                    <div class="value" id="eventsAuditCount">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">审查记录</div>
+                    <div class="value" id="reviewsCount">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '';
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelector(`.tab[onclick="showTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        }
+
+        async function fetchJSON(url) {
+            try {
+                const response = await fetch(API_BASE + url);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return await response.json();
+            } catch (error) {
+                console.error(`Error fetching ${url}:`, error);
+                return null;
+            }
+        }
+
+        async function loadOverview() {
+            const data = await fetchJSON('/api/stats/overview');
+            if (!data) return;
+
+            document.getElementById('projectInfo').textContent = `${data.project_name} | ${data.genre}`;
+            document.getElementById('totalChapters').textContent = data.total_chapters;
+            document.getElementById('currentChapter').textContent = `当前第 ${data.current_chapter} 章`;
+            document.getElementById('charactersCount').textContent = data.characters_count;
+            document.getElementById('eventsCount').textContent = data.events_count;
+            document.getElementById('hooksCount').textContent = data.hooks_count;
+
+            document.getElementById('projectName').textContent = data.project_name || '-';
+            document.getElementById('genre').textContent = data.genre || '-';
+            document.getElementById('mainCharacter').textContent = data.main_character || '-';
+            document.getElementById('goldenFinger').textContent = data.golden_finger || '-';
+            document.getElementById('strandConfig').textContent = data.strand_config
+                ? `任务:${data.strand_config.quest_ratio || 0.6} 火:${data.strand_config.fire_ratio || 0.2} 星座:${data.strand_config.constellation_ratio || 0.2}`
+                : '-';
+            document.getElementById('lastUpdated').textContent = data.last_updated
+                ? new Date(data.last_updated).toLocaleString('zh-CN')
+                : '-';
+        }
+
+        async function loadHealth() {
+            const data = await fetchJSON('/api/health');
+            if (!data) return;
+
+            const healthEl = document.getElementById('healthStatus');
+            healthEl.innerHTML = `<span class="health-status ${data.status}">${data.status === 'healthy' ? '✅ 健康' : '⚠️ 警告'}</span>`;
+
+            if (data.issues && data.issues.length > 0) {
+                healthEl.innerHTML += `<div class="error">问题: ${data.issues.join(', ')}</div>`;
+            }
+        }
+
+        async function loadReaderPull() {
+            const data = await fetchJSON('/api/reader-pull');
+            if (!data) return;
+
+            const hookList = document.getElementById('hookList');
+            const coolList = document.getElementById('coolPointList');
+
+            if (data.hooks && data.hooks.length > 0) {
+                hookList.innerHTML = data.hooks.map(h => `<li>${typeof h === 'string' ? h : JSON.stringify(h)}</li>`).join('');
+            } else {
+                hookList.innerHTML = '<li class="empty-state">暂无钩子记录</li>';
+            }
+
+            if (data.cool_points && data.cool_points.length > 0) {
+                coolList.innerHTML = data.cool_points.map(c => `<li>${typeof c === 'string' ? c : JSON.stringify(c)}</li>`).join('');
+            } else {
+                coolList.innerHTML = '<li class="empty-state">暂无爽点记录</li>';
+            }
+        }
+
+        async function loadCommits() {
+            const data = await fetchJSON('/api/commits');
+            if (!data) return;
+
+            const commitList = document.getElementById('commitList');
+
+            if (data.commits && data.commits.length > 0) {
+                commitList.innerHTML = data.commits.slice(0, 10).map(c => `
+                    <div class="commit-item">
+                        <div class="commit-id">${c.id || c.chapter || 'Unknown'}</div>
+                        <div>章节 ${c.chapter || '-'} | 字数 ${c.word_count || '-'}</div>
+                        <div class="commit-time">${c.timestamp ? new Date(c.timestamp).toLocaleString('zh-CN') : '-'}</div>
+                    </div>
+                `).join('');
+            } else {
+                commitList.innerHTML = '<div class="empty-state">暂无提交记录</div>';
+            }
+        }
+
+        async function loadContractSummary() {
+            const data = await fetchJSON('/api/contracts/summary');
+            if (!data) return;
+
+            document.getElementById('volumesCount').textContent = data.volumes ? data.volumes.length : 0;
+            document.getElementById('chapterContractsCount').textContent = data.chapters ? data.chapters.length : 0;
+            document.getElementById('eventsAuditCount').textContent = data.events ? data.events.length : 0;
+            document.getElementById('reviewsCount').textContent = data.reviews ? data.reviews.length : 0;
+        }
+
+        async function refreshAll() {
+            await Promise.all([
+                loadOverview(),
+                loadHealth(),
+                loadReaderPull(),
+                loadCommits(),
+                loadContractSummary()
+            ]);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            refreshAll();
+            setInterval(refreshAll, 30000);
+        });
+    </script>
+</body>
+</html>
